@@ -154,7 +154,8 @@ A URL da API pode ser alterada nos arquivos de `fetch()` localizados nos compone
 ###  VERCEL
 https://1-tdsq-front-comum-t5ae.vercel.app/
 
-> ⚠️ Para o web app hospedado no vercel, deixe a API de JAVA executando, lembrando que ele é local, portanto deve estar rodando pelo IntelliJ 
+> ⚠️ Para o web app hospedado no vercel, deixe a API de JAVA executando, lembrando que ele é local, portanto deve estar rodando pelo IntelliJ
+> ⚠️ Por estar hospedada no RENDER a API tem um delay para carregar dados de no máximo 50 segundos.
 
 ###  Localmente
 
@@ -219,6 +220,9 @@ https://1-tdsq-front-comum-t5ae.vercel.app/
 * `npm run build` – Cria uma versão otimizada para produção.
 * `npm run start` – Inicia o servidor em modo de produção.
 * `npm run lint` – Executa o ESLint para análise de código.
+
+---
+# RESPONSIVIDADE DO PROJETO
   
 ---
 # LINK DO VÍDEO
