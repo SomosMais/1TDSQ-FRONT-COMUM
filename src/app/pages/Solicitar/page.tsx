@@ -1,5 +1,5 @@
 'use client';
-import { useRouter, useSearchParams } from "next/navigation";
+import { useRouter } from "next/navigation";
 import { useState, useEffect } from "react";
 import Botao from "@/app/component/Botao/Botao";
 import Image from "next/image";
@@ -14,14 +14,23 @@ interface Pedido {
 
 const SolicitarAjuda = () => {
   const router = useRouter();
-  const searchParams = useSearchParams();
-  const id = searchParams.get("id");
 
+  const [id, setId] = useState<string | null>(null);
   const [descricao, setDescricao] = useState("");
   const [urgencia, setUrgencia] = useState("");
   const [tipo, setTipo] = useState("");
   const [mensagem, setMensagem] = useState("");
 
+  // Pegando o ID da query string sem useSearchParams
+  useEffect(() => {
+    if (typeof window !== "undefined") {
+      const params = new URLSearchParams(window.location.search);
+      const pedidoId = params.get("id");
+      setId(pedidoId);
+    }
+  }, []);
+
+  // Carregar dados do pedido, se for edição
   useEffect(() => {
     const emailUsuario = localStorage.getItem("email");
     if (!emailUsuario) {
@@ -44,11 +53,10 @@ const SolicitarAjuda = () => {
           console.error("Erro ao buscar o pedido:", err);
         });
     }
-  }, [id, router]);
+  }, [id]);
 
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
-
     const email_usuario = localStorage.getItem("email");
 
     if (!descricao || !urgencia || !tipo || !email_usuario) {
