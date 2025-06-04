@@ -108,12 +108,6 @@ quarkus.http.cors=true
 
 > ⚠️ O web app do usuário consome endpoints da **API Java com Quarkus**. Certifique-se de que a API esteja rodando localmente (porta 8080 por padrão) ou altere os endpoints do frontend para apontar para uma URL pública com CORS liberado.
 
-Exemplo de endpoint usado:
-
-```http
-GET http://localhost:8080/rota?origem=SÉ&destino=LAPA
-```
-
 ### ⚙️ Alterando a URL da API
 
 A URL da API pode ser alterada nos arquivos de `fetch()` localizados nos componentes que consomem a API.
