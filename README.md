@@ -15,7 +15,7 @@ Este é um projeto front-end desenvolvido com [Next.js](https://nextjs.org/) e e
 - [Node.js](https://nodejs.org/) instalado (versão 18 ou superior)
 - [Yarn](https://yarnpkg.com/) ou [npm](https://www.npmjs.com/)
 
-### 📦 Passos para rodar localmente 
+### 📦 Passos para rodar localmente
 
 ### Clone a API em JAVA
 ```bash
