@@ -4,8 +4,6 @@ import Cards from "@/app/component/Cards/Cards";
 import Hotbar from "@/app/component/Hotbar/Hotbar";
 import withAuth from "@/app/utils/withAuth";
 
-
-
 interface PedidoAjuda {
   Nome: string;
   id_usuario: number;
@@ -20,25 +18,19 @@ interface PedidoAjuda {
 
 const Historico = () => {
   const [pedidos, setPedidos] = useState<PedidoAjuda[]>([]);
-  const [email, setEmail] = useState("");
-
 
   useEffect(() => {
-  
-   
     const emailSalvo = localStorage.getItem("email");
     if (emailSalvo) {
-      setEmail(emailSalvo);
       fetch(`https://onetdsq-python.onrender.com/historico/cliente/${emailSalvo}`)
         .then((res) => res.json())
         .then((data) => {
-         if (Array.isArray(data)) {
-          setPedidos(data);
-        } else {
-          setPedidos([]);
-          console.warn("Nenhum pedido retornado.");
-        }
-
+          if (Array.isArray(data)) {
+            setPedidos(data);
+          } else {
+            setPedidos([]);
+            console.warn("Nenhum pedido retornado.");
+          }
         })
         .catch((err) => {
           console.error("Erro ao buscar histórico:", err);
@@ -71,7 +63,6 @@ const Historico = () => {
           ) : (
             <p className="text-lg text-gray-600 mt-4">Não há pedidos registrados.</p>
           )}
-
         </div>
       </div>
       <Hotbar />

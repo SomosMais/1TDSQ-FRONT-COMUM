@@ -1,4 +1,4 @@
-import React, {FC} from 'react';
+import React from 'react';
 
 type CardsProps = {
     id?: number;
@@ -11,7 +11,7 @@ type CardsProps = {
 }
 
 const CardEmpresa: React.FC<CardsProps> = (
-    {id, nome = "Nome", tipo_ajuda="Tipo Ajuda", descricao = "Lorem ipsum dolor sit amet, consectetur adipisicing elit. Ea, sequi! Rerum, autem omnis? Eius eligendi voluptas itaque, dolore odio aliquid consequuntur quam aspernatur quae nulla iusto possimus dolorem exercitationem nobis!", endereco
+    { nome = "Nome", tipo_ajuda="Tipo Ajuda", descricao = "Lorem ipsum dolor sit amet, consectetur adipisicing elit. Ea, sequi! Rerum, autem omnis? Eius eligendi voluptas itaque, dolore odio aliquid consequuntur quam aspernatur quae nulla iusto possimus dolorem exercitationem nobis!", endereco
     , backgroundColor = "#E63946"
     , backgroundColor2 = "#E63946"
     }

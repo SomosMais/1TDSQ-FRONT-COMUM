@@ -1,17 +1,21 @@
 'use client';
-import { useRouter } from "next/navigation";
+import { useRouter, useSearchParams } from "next/navigation";
+import { useState, useEffect } from "react";
 import Botao from "@/app/component/Botao/Botao";
 import Image from "next/image";
-import { useState, useEffect } from "react";
-import { useSearchParams } from "next/navigation";
 import Hotbar from "@/app/component/Hotbar/Hotbar";
 
+interface Pedido {
+  id_pedido: number;
+  descricao: string;
+  urgente: string;
+  id_tipo_pedido: number;
+}
 
 const SolicitarAjuda = () => {
-
+  const router = useRouter();
   const searchParams = useSearchParams();
   const id = searchParams.get("id");
-  const router = useRouter();
 
   const [descricao, setDescricao] = useState("");
   const [urgencia, setUrgencia] = useState("");
@@ -21,68 +25,70 @@ const SolicitarAjuda = () => {
   useEffect(() => {
     const emailUsuario = localStorage.getItem("email");
     if (!emailUsuario) {
-      router.push("/pages/LoginComum"); // Redireciona se não estiver logado
+      router.push("/pages/LoginComum");
       return;
     }
+
     if (id) {
-      fetch(`https://onetdsq-python.onrender.com/historico/cliente/${localStorage.getItem("email")}`)
+      fetch(`https://onetdsq-python.onrender.com/historico/cliente/${emailUsuario}`)
         .then((res) => res.json())
-        .then((data) => {
-          const pedido = data.find((p: any) => p.id_pedido == id);
+        .then((data: Pedido[]) => {
+          const pedido = data.find((p) => p.id_pedido.toString() === id);
           if (pedido) {
-            console.log("Editando pedido:", pedido);
             setDescricao(pedido.descricao);
             setUrgencia(pedido.urgente);
             setTipo(pedido.id_tipo_pedido?.toString() ?? "");
           }
+        })
+        .catch((err) => {
+          console.error("Erro ao buscar o pedido:", err);
         });
     }
-  }, [id]);
-
+  }, [id, router]);
 
   const handleSubmit = async (e: React.FormEvent) => {
-  e.preventDefault();
-  const email_usuario = localStorage.getItem("email");
+    e.preventDefault();
 
-  if (!descricao || !urgencia || !tipo || !email_usuario) {
-    setMensagem("Preencha todos os campos!");
-    return;
-  }
+    const email_usuario = localStorage.getItem("email");
 
-  const url = id
-    ? `https://onetdsq-python.onrender.com/atualizar_pedido/${id}`
-    : `https://onetdsq-python.onrender.com/cadastro_pedido_ajuda`;
-
-  const metodo = id ? "PATCH" : "POST";
-
-  try {
-    const response = await fetch(url, {
-      method: metodo,
-      headers: {
-        "Content-Type": "application/json",
-      },
-      body: JSON.stringify({
-        descricao,
-        urgencia,
-        tipo,
-        email_usuario,
-      }),
-    });
-
-    const data = await response.json();
-
-    if (response.ok) {
-      alert(data.msg);
-      router.push("/pages/Historico");
-    } else {
-      setMensagem(data.msg || "Erro na operação.");
+    if (!descricao || !urgencia || !tipo || !email_usuario) {
+      setMensagem("Preencha todos os campos!");
+      return;
     }
-  } catch (error) {
-    console.error("Erro:", error);
-    setMensagem("Erro na solicitação. Tente novamente.");
-  }
-};
 
+    const url = id
+      ? `https://onetdsq-python.onrender.com/atualizar_pedido/${id}`
+      : `https://onetdsq-python.onrender.com/cadastro_pedido_ajuda`;
+
+    const metodo = id ? "PATCH" : "POST";
+
+    try {
+      const response = await fetch(url, {
+        method: metodo,
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify({
+          descricao,
+          urgencia,
+          tipo,
+          email_usuario,
+        }),
+      });
+
+      const data = await response.json();
+
+      if (response.ok) {
+        alert(data.msg);
+        router.push("/pages/Historico");
+      } else {
+        setMensagem(data.msg || "Erro na operação.");
+      }
+    } catch (error) {
+      console.error("Erro:", error);
+      setMensagem("Erro na solicitação. Tente novamente.");
+    }
+  };
 
   return (
     <>
@@ -94,7 +100,6 @@ const SolicitarAjuda = () => {
       <form onSubmit={handleSubmit} className="w-full h-[440px] flex flex-col items-center justify-center px-10">
         <h2 className="text-[#212529] mb-6 text-2xl">Solicitar Ajuda</h2>
 
-        {/* Tipo de ajuda */}
         <select
           value={tipo}
           onChange={(e) => setTipo(e.target.value)}
@@ -102,7 +107,7 @@ const SolicitarAjuda = () => {
         >
           <option value="">Selecione o tipo de ajuda</option>
           <option value="1">Resgate de Vítimas</option>
-          <option value="2">Resgate de Animais</option> 
+          <option value="2">Resgate de Animais</option>
           <option value="3">Ajuda Humanitária</option>
           <option value="4">Apoio em Enchentes</option>
           <option value="5">Apoio em Deslizamento</option>
@@ -113,10 +118,9 @@ const SolicitarAjuda = () => {
           <option value="10">Doação de Roupas</option>
           <option value="11">Solicitação de Abrigo</option>
           <option value="12">Acesso a Água Potável</option>
-          <option value="13">Forcecimento de Energia Emergencial</option>
+          <option value="13">Fornecimento de Energia Emergencial</option>
         </select>
 
-        {/* Descrição */}
         <textarea
           value={descricao}
           onChange={(e) => {
@@ -127,7 +131,6 @@ const SolicitarAjuda = () => {
         ></textarea>
         <p className="text-sm text-right w-full mb-4 text-gray-500">{descricao.length}/255</p>
 
-        {/* Urgência */}
         <select
           value={urgencia}
           onChange={(e) => setUrgencia(e.target.value)}

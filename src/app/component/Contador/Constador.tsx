@@ -1,5 +1,5 @@
 import Image from "next/image";
-import React, {FC} from "react";
+import React from "react";
 
 type ContadorProps = {
     id?: number;
@@ -9,7 +9,7 @@ type ContadorProps = {
 }
 
 const Contador: React.FC<ContadorProps> = ({
-    id,
+    
     titulo = "Título",
     quantidade = 0,
     icon
