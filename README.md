@@ -18,23 +18,6 @@ Este é um projeto front-end desenvolvido com [Next.js](https://nextjs.org/) e e
 
 ### 📦 Passos para rodar localmente 
 
-```bash
-# Clone este repositório
-git clone https://github.com/MatheusHenriqueNF/Totem-Sprint-4
-
-# Acesse a pasta do projeto
-cd Totem-Sprint-4
-
-# Instale as dependências
-npm install
-
-# Execute o projeto
-npm run dev
-````
-
-A aplicação estará disponível em localhost:
-📎 [http://localhost:3000](http://localhost:3000)
-
 ### Clone a API em JAVA
 ```bash
 # Clone o repositório
@@ -238,7 +221,11 @@ https://1-tdsq-front-comum-t5ae.vercel.app/
 * `npm run build` – Cria uma versão otimizada para produção.
 * `npm run start` – Inicia o servidor em modo de produção.
 * `npm run lint` – Executa o ESLint para análise de código.
+  
+---
+# LINK DO VÍDEO
 
+---
 ## 🪖INTEGRANTES
 *CLEYTON ENRIKE DE OLIVEIRA – RM 560485
 *MATHEUS HENRIQUE NASCIMENTO DE FREITAS – RM 560442
