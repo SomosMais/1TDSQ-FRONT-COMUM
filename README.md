@@ -1,4 +1,5 @@
 # 🚀 1TDSQ-FRONT-COMUM
+ 
 
 Este é um projeto front-end desenvolvido com [Next.js](https://nextjs.org/) e estilizado utilizando [Tailwind CSS](https://tailwindcss.com/). Ele serve como base comum para aplicações da equipe 1TDSQ da SomosMais. Esse é o WEB APP para usuários.
 
