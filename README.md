@@ -7,8 +7,6 @@ Este é um projeto front-end desenvolvido com [Next.js](https://nextjs.org/) e e
 * [Next.js](https://nextjs.org/) – Framework React para produção.
 * [Tailwind CSS](https://tailwindcss.com/) – Framework de utilitários CSS.
 * [TypeScript](https://www.typescriptlang.org/) – Superset do JavaScript que adiciona tipagem estática.
-* [ESLint](https://eslint.org/) – Ferramenta de linting para manter a qualidade do código.
-* [PostCSS](https://postcss.org/) – Ferramenta para transformação de estilos CSS com plugins JS.
 
   ## 🚀 Como executar o totem localmente
 
