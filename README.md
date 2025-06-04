@@ -122,7 +122,7 @@ A URL da API pode ser alterada nos arquivos de `fetch()` localizados nos compone
 
 ---
 
-### 📌 Endpoints úteis (PYTHO RENDER)
+### 📌 Endpoints úteis (PYTHON RENDER)
 
 * A API hopedada no RENDER
 
@@ -225,6 +225,10 @@ https://1-tdsq-front-comum-t5ae.vercel.app/
 ---
 # LINK DO VÍDEO
 
+---
+---
+# LINK DO PROJETO EMPRESA
+https://github.com/SomosMais/1TDSQ-FRONT-EMPRESA
 ---
 ## 🪖INTEGRANTES
 *CLEYTON ENRIKE DE OLIVEIRA – RM 560485
