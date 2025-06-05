@@ -217,11 +217,15 @@ https://1-tdsq-front-comum-t5ae.vercel.app/
 * `npm run lint` – Executa o ESLint para análise de código.
 
 ---
-# RESPONSIVIDADE DO PROJETO
-  
+# 📱 Sobre a Responsividade
+Apesar da aplicação ter como público usuários de dispositivos móveis, optamos por não implementar responsividade nesta versão.
+
+Como se trata de um web app, nossa prioridade foi garantir a entrega funcional das principais features dentro do escopo e tempo disponíveis. A decisão de excluir a responsividade neste momento teve como objetivo simplificar o desenvolvimento inicial e concentrar os esforços na estrutura e lógica do sistema.
+
+Ressaltamos que a responsividade está prevista para futuras iterações, assim que as funcionalidades forem consolidadas e validadas com os usuários reais.
 ---
 # LINK DO VÍDEO
-
+https://youtu.be/ALFRn_6Dl3w
 ---
 ---
 # LINK DO PROJETO EMPRESA
