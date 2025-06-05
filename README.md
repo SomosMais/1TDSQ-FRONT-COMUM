@@ -25,6 +25,13 @@ Este é um projeto front-end desenvolvido com [Next.js](https://nextjs.org/) e e
 git clone https://github.com/SomosMais/1TDSQ-JAVA
 ````
 ---
+### Clone a API em Python
+```bash
+# Clone o repositório
+git clone https://github.com/SomosMais/1TDSQ-Python
+````
+⚠️ A api de Python está hospedada no RENDER, então clone ela caso a API hospedada esteja indisponível.
+---
 ## 🔧 Como rodar a API Java (Quarkus) no IntelliJ IDEA
 
 ### ✅ Pré-requisitos
